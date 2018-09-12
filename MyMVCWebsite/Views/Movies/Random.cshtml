@@ -1,0 +1,33 @@
+﻿@model MyMVCWebsite.ViewModel.RandomMovieViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*
+    To Add Comment
+
+
+
+*@
+
+@{
+    var popularClass = Model.Customers.Count > 0 ? "popular" : null;
+}
+
+<h2 class="@popularClass">@Model.Movie.Name</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    <p>No Customers</p>
+}
+else
+{
+    <ul>
+        @foreach (var item in Model.Customers)
+        {
+            <li>@item.Name</li>
+        }
+    </ul>
+}
